@@ -1,0 +1,137 @@
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+  height: 550px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-right: 80px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  width: 450px;
+
+  padding: 45px 35px;
+
+  background-color: #fff3e3;
+
+  box-sizing: border-box;
+}
+
+
+/* New Arrival */
+
+.hero-title {
+  margin: 0 0 10px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+
+/* Heading */
+
+.hero-content h1 {
+  margin: 0 0 15px;
+
+  color: #b88e2f;
+
+  font-size: 40px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+/* Description */
+
+.hero-description {
+  margin: 0 0 30px;
+
+  color: #333333;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* Button */
+
+.hero-button {
+  width: 150px;
+  height: 50px;
+
+  border: none;
+
+  background-color: #b88e2f;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.hero-button:hover {
+  background-color: #a17b25;
+}
+
+
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    height: 500px;
+    padding-right: 30px;
+  }
+
+  .hero-content {
+    width: 400px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .hero {
+    height: 500px;
+
+    padding: 20px;
+
+    justify-content: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+}

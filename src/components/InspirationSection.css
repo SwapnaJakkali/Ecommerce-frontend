@@ -1,0 +1,225 @@
+/* ================================
+   INSPIRATION SECTION
+================================ */
+
+.inspiration-section {
+    width: 100%;
+    min-height: 500px;
+
+    background-color: #fcf8f3;
+
+    display: flex;
+    align-items: center;
+
+    padding: 50px 60px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* LEFT SIDE */
+
+.inspiration-content {
+    width: 38%;
+    padding-left: 70px;
+}
+
+.inspiration-content h2 {
+    font-size: 38px;
+    line-height: 1.2;
+
+    color: #333;
+
+    margin-bottom: 15px;
+}
+
+.inspiration-content p {
+    font-size: 15px;
+    line-height: 1.5;
+
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+.inspiration-content button {
+    background-color: #b88e2f;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 25px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* RIGHT SIDE */
+
+.inspiration-gallery {
+    width: 62%;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    position: relative;
+
+    height: 390px;
+}
+
+
+/* MAIN IMAGE */
+
+.main-room {
+    width: 52%;
+    height: 390px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.main-room img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ROOM INFORMATION */
+
+.room-info {
+    position: absolute;
+
+    bottom: 15px;
+    left: 15px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    padding: 18px 25px;
+
+    min-width: 180px;
+}
+
+.room-info span {
+    font-size: 13px;
+
+    color: #666;
+}
+
+.room-info h3 {
+    margin: 5px 0 0;
+
+    font-size: 22px;
+
+    color: #333;
+}
+
+.room-info button {
+    position: absolute;
+
+    right: -32px;
+    bottom: 0;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    background-color: #b88e2f;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* SECOND IMAGE */
+
+.second-room {
+    width: 38%;
+    height: 325px;
+
+    overflow: hidden;
+}
+
+.second-room img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* NEXT ARROW */
+
+.next-room {
+    position: absolute;
+
+    right: 8px;
+    top: 45%;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background-color: white;
+
+    color: #b88e2f;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* DOTS */
+
+.slider-dots {
+    position: absolute;
+
+    bottom: 25px;
+    left: 53%;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.slider-dots span {
+    width: 8px;
+    height: 8px;
+
+    background-color: #ddd;
+
+    border-radius: 50%;
+}
+
+.slider-dots .active {
+    width: 10px;
+    height: 10px;
+
+    background-color: #b88e2f;
+
+    border: 2px solid #f5e4b8;
+}

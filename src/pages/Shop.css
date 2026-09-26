@@ -1,0 +1,301 @@
+/* ================================
+   SHOP PAGE
+================================ */
+
+.shop-page {
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/* ================================
+   SHOP BANNER
+================================ */
+
+.shop-banner {
+    width: 100%;
+    height: 220px;
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.shop-banner h1 {
+    margin: 0 0 10px;
+
+    font-size: 40px;
+    font-weight: 600;
+    color: #222;
+}
+
+.shop-banner p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #555;
+}
+
+.shop-banner p span {
+    margin: 0 8px;
+}
+
+
+/* ================================
+   FILTER / SORT TOOLBAR
+================================ */
+
+.shop-toolbar {
+    width: 100%;
+    min-height: 70px;
+
+    background-color: #fdf6ed;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   TOOLBAR LEFT
+================================ */
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.toolbar-left button {
+    border: none;
+    background: transparent;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.toolbar-left span {
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.toolbar-left p {
+    margin: 0;
+    padding-left: 15px;
+
+    border-left: 1px solid #aaa;
+
+    font-size: 13px;
+    color: #555;
+}
+
+
+/* ================================
+   TOOLBAR RIGHT
+================================ */
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.toolbar-right label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    color: #333;
+}
+
+.toolbar-right select {
+    height: 40px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    background-color: #fff;
+
+    font-size: 14px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   PRODUCTS
+================================ */
+
+.shop-products {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+}
+
+.shop-products h2 {
+    text-align: center;
+
+    font-size: 28px;
+
+    margin-bottom: 30px;
+
+    color: #333;
+}
+
+
+/* ================================
+   PRODUCT GRID
+================================ */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ================================
+   PAGINATION
+================================ */
+
+.pagination {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 40px 0;
+    margin: 40px 0 0;
+
+    background-color: #f9f9f9;
+}
+
+
+/* PAGINATION BUTTON */
+
+.pagination button {
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: transparent;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* ACTIVE PAGE */
+
+.pagination button.active {
+    background-color: #b88e2f;
+    color: white;
+}
+
+
+/* HOVER */
+
+.pagination button:hover:not(.active):not(:disabled) {
+    background-color: #eee;
+}
+
+
+/* DISABLED NEXT */
+
+.pagination button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.5;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading {
+    text-align: center;
+
+    padding: 50px;
+
+    font-size: 18px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .shop-toolbar {
+        padding: 0 4%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .toolbar-left p {
+        display: none;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .shop-banner {
+        height: 180px;
+    }
+
+    .shop-banner h1 {
+        font-size: 32px;
+    }
+
+    .shop-toolbar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 15px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pagination {
+        gap: 10px;
+    }
+
+    .pagination button {
+        width: 42px;
+        height: 42px;
+    }
+}

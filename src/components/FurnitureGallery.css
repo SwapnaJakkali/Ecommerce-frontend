@@ -1,0 +1,142 @@
+/* ================================
+   FURNITURE GALLERY
+================================ */
+
+.furniture-gallery {
+    width: 100%;
+    background-color: #fff;
+    padding: 35px 0 40px;
+    overflow: hidden;
+}
+
+
+/* ================================
+   HEADING
+================================ */
+
+.gallery-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gallery-heading p {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+}
+
+.gallery-heading h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+}
+
+
+/* ================================
+   PRECISE COLLAGE CONTAINER
+================================ */
+
+.gallery-container {
+    position: relative;
+    width: 65vw;
+    /* Aspect ratio height calculation based on original design layout */
+    height: 58vw; 
+    max-height: 650px;
+    margin: 0 auto;
+}
+
+@media (min-width: 1750px) {
+    .gallery-container {
+        width: 1750px;
+        height: 1015px;
+    }
+}
+
+.g-img {
+    position: absolute;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.g-img:hover {
+    transform: scale(1.03);
+    z-index: 10;
+}
+
+/* 
+    Precise positions calculated to match the Funiro Figma template 
+*/
+
+/* Bookshelf (Far Left Top) */
+.g-img-1 { 
+    left: 0%; 
+    top: 0%; 
+    width: 7.5%; 
+    height: 60%; 
+}
+
+/* Workspace (Mid Left Top) */
+.g-img-2 { 
+    left: 8.5%; 
+    top: 13%; 
+    width: 32.5%; 
+    height: 38%; 
+}
+
+/* Armchair (Far Left Bottom) */
+.g-img-3 { 
+    left: 0%; 
+    top: 62%; 
+    width: 15.5%; 
+    height: 36%; 
+}
+
+/* Stools (Mid Left Bottom) */
+.g-img-4 { 
+    left: 17%; 
+    top: 53%; 
+    width: 15.5%; 
+    height: 32%; 
+}
+
+/* Center Dining (Center) */
+.g-img-5 { 
+    left: 42.5%; 
+    top: 25%; 
+    width: 14%; 
+    height: 39%; 
+}
+
+/* Bedroom (Mid Right Top) */
+.g-img-6 { 
+    left: 58%; 
+    top: 17%; 
+    width: 21.5%; 
+    height: 26%; 
+}
+
+/* Small Frame (Mid Right Bottom) */
+.g-img-7 { 
+    left: 58%; 
+    top: 45%; 
+    width: 12.5%; 
+    height: 35%; 
+}
+
+/* Far Right Dining (Far Right Top) */
+.g-img-8 { 
+    left: 81%; 
+    top: 5%; 
+    width: 19%; 
+    height: 46%; 
+}
+
+/* Kitchen Shelf (Far Right Bottom) */
+.g-img-9 { 
+    left: 72%; 
+    top: 53%; 
+    width: 28%; 
+    height: 37%; 
+}
