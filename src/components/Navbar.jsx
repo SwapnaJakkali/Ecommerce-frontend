@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/icon.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import "./Navbar.css"
@@ -24,6 +24,14 @@ function Navbar() {
         navigate("/");
     };
 
+    const handleScrollToFooter = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "smooth",
+        });
+    };
+
     // Get first name only for display
     const firstName = user?.name?.split(" ")[0] || "";
 
@@ -35,10 +43,10 @@ function Navbar() {
             </div>
             <div className="nav-links">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/shop">Shop</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><a href="#footer" onClick={handleScrollToFooter}>Contact</a></li>
                 </ul>
             </div>
             <div className="nav-icons">

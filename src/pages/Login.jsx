@@ -33,7 +33,7 @@ function Login() {
             
             if (data.token) {
                 localStorage.setItem("token", data.token);
-                await fetchUser(); 
+                await fetchUser();
                 navigate(-1); // Go back to the previous page
             } else {
                 throw new Error("No token received");
