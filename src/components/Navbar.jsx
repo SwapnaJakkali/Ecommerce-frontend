@@ -55,13 +55,17 @@ function Navbar() {
                             onClick={handleLogout}
                             title="Logout"
                         >
-                            <FontAwesomeIcon icon={faRightFromBracket} />
+                            Logout <FontAwesomeIcon icon={faRightFromBracket} />
                         </button>
                     </div>
                 ) : (
-                    <span title="Login">
-                        <FontAwesomeIcon icon={faUser} />
-                    </span>
+                    <button
+                        className="navbar-login-btn"
+                        onClick={() => navigate("/login")}
+                        title="Login"
+                    >
+                        Login <FontAwesomeIcon icon={faUser} />
+                    </button>
                 )}
 
                 <span>

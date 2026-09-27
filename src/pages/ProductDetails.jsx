@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AuthModal from "../components/AuthModal";
 
 import {
     getProductById,
@@ -41,10 +40,6 @@ function ProductDetails() {
     const [addedToCart, setAddedToCart] = useState(false);
 
     const [cartError, setCartError] = useState("");
-
-    // Controls visibility of Login/Register modal
-    const [showAuthModal, setShowAuthModal] = useState(false);
-
 
     // =========================
     // LOAD PRODUCT
@@ -189,7 +184,7 @@ function ProductDetails() {
         const token = localStorage.getItem("token");
 
         if (!token) {
-            setShowAuthModal(true);
+            navigate("/login");
             return;
         }
 
@@ -207,27 +202,7 @@ function ProductDetails() {
     };
 
 
-    // =========================
-    // AUTH SUCCESS CALLBACK
-    // =========================
 
-    const handleAuthSuccess = async () => {
-
-        setShowAuthModal(false);
-
-        await fetchCart();
-
-        try {
-            setCartError("");
-            await addToCart(product.id, quantity);
-            setAddedToCart(true);
-            setTimeout(() => setAddedToCart(false), 2000);
-        } catch (err) {
-            setCartError("Failed to add to cart. Please try again.");
-            setTimeout(() => setCartError(""), 3000);
-        }
-
-    };
 
 
     // =========================
@@ -279,19 +254,6 @@ function ProductDetails() {
 
 
             {/* =================================
-                AUTH MODAL (Login / Register)
-                Shown when user is not logged in
-            ================================= */}
-
-            {showAuthModal && (
-                <AuthModal
-                    onClose={() => setShowAuthModal(false)}
-                    onSuccess={handleAuthSuccess}
-                />
-            )}
-
-
-            {/* =================================
                 BREADCRUMB
             ================================= */}
 
@@ -323,7 +285,7 @@ function ProductDetails() {
 
                 <div className="product-details-image">
 
-                    <img
+                    <img 
                         src={product.imageUrl}
                         alt={product.name}
                     />
@@ -564,7 +526,7 @@ function ProductDetails() {
 
                     <div>
 
-                        <img
+                        <img style={{width:"250px", height:"300px"}}
                             src={product.imageUrl}
                             alt={product.name}
                         />
@@ -574,7 +536,7 @@ function ProductDetails() {
 
                     <div>
 
-                        <img
+                        <img  style={{width:"250px", height:"300px"}}
                             src={product.imageUrl}
                             alt={product.name}
                         />
@@ -634,7 +596,7 @@ function ProductDetails() {
 
                                 <div className="related-image">
 
-                                    <img
+                                    <img style={{width:"320px", height:"300px"}}
                                         src={item.imageUrl}
                                         alt={item.name}
                                     />
@@ -656,9 +618,11 @@ function ProductDetails() {
                                     </p>
 
 
-                                    <strong>
+                                    <p>
+                                        <strong>
                                         Rp {item.price}
                                     </strong>
+                                    </p>
 
                                 </div>
 

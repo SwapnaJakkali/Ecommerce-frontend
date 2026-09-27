@@ -31,7 +31,7 @@ function Home() {
 
             try {
 
-                const data = await getProducts(1,26);
+                const data = await getProducts(1,24);
 
                 // Backend response:
                 // data.content = products
