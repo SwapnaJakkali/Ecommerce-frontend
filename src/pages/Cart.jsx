@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useCart } from "../context/CartContext";
 import "./Cart.css";
+import shop from "../assets/shop.png"
 
 
 function Cart() {
@@ -172,7 +173,8 @@ function Cart() {
                                     >
 
                                         <div className="cart-product-image-placeholder">
-                                            <span>📦</span>
+                                            {/* <span>📦</span> */}
+                                            <img style={{width:"60px" , height:"60px"}} src={item.imageUrl} alt="item.productName"/>
                                         </div>
 
                                         <span className="cart-product-name">

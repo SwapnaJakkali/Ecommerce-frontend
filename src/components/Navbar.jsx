@@ -16,7 +16,7 @@ import {
 
 function Navbar() {
     const navigate = useNavigate();
-    const { totalItems } = useCart();
+    const { totalItems, setIsCartOpen } = useCart();
     const { user, isLoggedIn, logout } = useAuth();
 
     const handleLogout = () => {
@@ -86,7 +86,7 @@ function Navbar() {
 
                 <span
                     className="navbar-cart-icon"
-                    onClick={() => navigate("/cart")}
+                    onClick={() => setIsCartOpen(true)}
                     title="View Cart"
                 >
                     <FontAwesomeIcon icon={faCartShopping} />

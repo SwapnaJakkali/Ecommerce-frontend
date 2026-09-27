@@ -32,6 +32,8 @@ export function CartProvider({ children }) {
 
     const [error, setError] = useState(null);
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
 
     // =========================
     // FETCH CART FROM BACKEND
@@ -192,6 +194,8 @@ export function CartProvider({ children }) {
             addToCart,
             updateItem,
             removeItem,
+            isCartOpen,
+            setIsCartOpen,
         }}>
             {children}
         </CartContext.Provider>
