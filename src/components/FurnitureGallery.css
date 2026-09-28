@@ -140,3 +140,12 @@
     width: 28%; 
     height: 37%; 
 }
+@media (max-width:600px) {
+    .gallery-container {
+        width: 270px;
+        height:300px;
+    }
+    .gallery-heading h2{
+        font-size: 25px;
+    }
+}

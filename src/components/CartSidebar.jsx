@@ -76,7 +76,7 @@ function CartSidebar() {
                     <div className="sidebar-actions">
                         <button className="sidebar-btn" onClick={() => handleNavigate("/cart")}>Cart</button>
                         <button className="sidebar-btn" onClick={() => handleNavigate("/checkout")}>Checkout</button>
-                        <button className="sidebar-btn comparison-btn" onClick={() => handleNavigate("/comparison")}>Comparison</button>
+                        {/* <button className="sidebar-btn comparison-btn" onClick={() => handleNavigate("/comparison")}>Comparison</button> */}
                     </div>
                 </div>
             </div>

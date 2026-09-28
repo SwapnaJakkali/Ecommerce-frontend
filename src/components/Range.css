@@ -87,5 +87,6 @@
   .range-card {
     width: 90%;
     max-width: 350px;
+    align-items: center;
   }
 }

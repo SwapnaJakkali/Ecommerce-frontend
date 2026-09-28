@@ -94,3 +94,37 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 700px) {
+  .product-image-container {
+    height: 180px; /* Reduce image height to balance 2-col layout */
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-info h3 {
+    font-size: 12px;
+  }
+
+  .product-description {
+    font-size: 8px;
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+  .discount-badge,
+  .new-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 10px;
+    top: 10px;
+    right: 10px;
+  }
+}

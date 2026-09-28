@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 import room1 from "../assets/room1.png";
 import room2 from "../assets/room2.png";
+import { Link } from "react-router-dom";
 import "./InspirationSection.css"
+
 function InspirationSection() {
+    const slides = [
+        { img: room1, category: "01 — Bed Room", title: "Inner Peace" },
+        { img: room2, category: "02 — Dining Room", title: "Modern Dining" },
+        { img: room1, category: "03 — Living Room", title: "Cozy Corner" },
+        { img: room2, category: "04 — Kitchen", title: "Minimalist" },
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    };
+
+    const nextIndex = (currentIndex + 1) % slides.length;
+
     return (
         <section className="inspiration-section">
 
@@ -22,8 +39,8 @@ function InspirationSection() {
                     prototype of rooms that inspire you
                 </p>
 
-                <button>
-                    Explore More
+                <button >
+                    <Link className="explore-more-btn" to="/shop">Explore More</Link>
                 </button>
 
             </div>
@@ -34,16 +51,16 @@ function InspirationSection() {
                 <div className="main-room">
 
                     <img
-                        src={room1}
+                        src={slides[currentIndex].img}
                         alt="Bedroom inspiration"
                     />
 
                     <div className="room-info">
-                        <span>01 — Bed Room</span>
+                        <span>{slides[currentIndex].category}</span>
 
-                        <h3>Inner Peace</h3>
+                        <h3>{slides[currentIndex].title}</h3>
 
-                        <button>→</button>
+                        <button onClick={nextSlide}>→</button>
                     </div>
 
                 </div>
@@ -51,21 +68,25 @@ function InspirationSection() {
                 <div className="second-room">
 
                     <img
-                        src={room2}
+                        src={slides[nextIndex].img}
                         alt="Dining room inspiration"
                     />
 
                 </div>
 
-                <button className="next-room">
+                <button className="next-room" onClick={nextSlide}>
                     →
                 </button>
 
                 <div className="slider-dots">
-                    <span className="active"></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    {slides.map((_, index) => (
+                        <span
+                            key={index}
+                            className={index === currentIndex ? "active" : ""}
+                            onClick={() => setCurrentIndex(index)}
+                            style={{ cursor: 'pointer' }}
+                        ></span>
+                    ))}
                 </div>
 
             </div>

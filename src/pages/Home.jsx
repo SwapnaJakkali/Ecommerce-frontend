@@ -17,6 +17,9 @@ import "./Home.css";
 function Home() {
 
     const [products, setProducts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
 
     const navigate = useNavigate();
 
@@ -25,33 +28,43 @@ function Home() {
     // FETCH PRODUCTS
     // =========================
 
-    useEffect(() => {
+    const fetchProducts = async (pageNumber) => {
+        setIsLoading(true);
+        try {
+            // Artificial delay to show loading state as requested ("take time")
+            await new Promise((resolve) => setTimeout(resolve, 800));
 
-        const fetchProducts = async () => {
+            const data = await getProducts(pageNumber, 8);
 
-            try {
-
-                const data = await getProducts(1,24);
-
-                // Backend response:
-                // data.content = products
-
+            // Backend response:
+            // data.content = products
+            
+            if (pageNumber === 1) {
                 setProducts(data.content);
-
-            } catch (error) {
-
-                console.error(
-                    "Error fetching products:",
-                    error
-                );
-
+            } else {
+                setProducts(prevProducts => [...prevProducts, ...data.content]);
             }
 
-        };
+            if (data.content.length < 8 || data.last) {
+                setHasMore(false);
+            }
 
-        fetchProducts();
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
+    useEffect(() => {
+        fetchProducts(1);
     }, []);
+
+    const handleShowMore = () => {
+        const nextPage = page + 1;
+        setPage(nextPage);
+        fetchProducts(nextPage);
+    };
 
 
     return (
@@ -115,6 +128,9 @@ function Home() {
 
             <ProductList
                 products={products}
+                onShowMore={handleShowMore}
+                isLoading={isLoading}
+                hasMore={hasMore}
             />
 
 

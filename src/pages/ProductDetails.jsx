@@ -293,9 +293,6 @@ function ProductDetails() {
                 </div>
 
 
-                {/* =================================
-                    RIGHT SIDE - INFORMATION
-                ================================= */}
 
                 <div className="product-details-info">
 
@@ -397,12 +394,12 @@ function ProductDetails() {
                             {addedToCart ? "✓ Added!" : "Add To Cart"}
                         </button>
 
-
+{/* 
                         <button className="compare">
 
                             + Compare
 
-                        </button>
+                        </button> */}
 
                     </div>
 
@@ -620,7 +617,7 @@ function ProductDetails() {
 
                                     <p>
                                         <strong>
-                                        Rp {item.price}
+                                        Rs {item.price}
                                     </strong>
                                     </p>
 

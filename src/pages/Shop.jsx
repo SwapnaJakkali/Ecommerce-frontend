@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -8,17 +9,18 @@ import { getProducts } from "../services/productServices";
 
 import "./Shop.css";
 import shop from "../assets/shop.png";
+import shop1 from "../assets/shop1.png";
 
 
 function Shop() {
 
-    // =========================
-    // STATE
-    // =========================
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchQuery = queryParams.get("search") || "";
 
     const [products, setProducts] = useState([]);
-
     const [loading, setLoading] = useState(true);
+    const [sortBy, setSortBy] = useState("default");
 
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -123,20 +125,42 @@ function Shop() {
     };
 
 
+    // =========================
+    // FILTERED & SORTED PRODUCTS
+    // =========================
+
+    const displayedProducts = useMemo(() => {
+        let result = products;
+
+        // Filter by search query
+        if (searchQuery) {
+            result = result.filter(p => 
+                p.name?.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                p.description?.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
+
+        // Sort
+        if (sortBy === "price") {
+            // Assumes price is a number or can be parsed as one
+            result = [...result].sort((a, b) => Number(a.price) - Number(b.price));
+        } else if (sortBy === "name") {
+            result = [...result].sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+        }
+
+        return result;
+    }, [products, searchQuery, sortBy]);
+
+
     return (
         <>
 
             <Navbar />
 
-
-            {/* =========================
-                SHOP BANNER
-            ========================= */}
-
             <section
                 className="shop-banner"
                 style={{
-                    backgroundImage: `url(${shop})`
+                    backgroundImage: `url(${shop1})`
                 }}
             >
 
@@ -149,10 +173,6 @@ function Shop() {
             </section>
 
 
-            {/* =========================
-                FILTER BAR
-            ========================= */}
-
             <section className="shop-toolbar">
 
 
@@ -160,20 +180,13 @@ function Shop() {
 
                 <div className="toolbar-left">
 
-                    <button>
-                        ☰ Filter
-                    </button>
-
-                    <span>▦</span>
-
-                    <span>☷</span>
-
                     <p>
                         Showing{" "}
-                        {products.length}{" "}
+                        {displayedProducts.length}{" "}
                         of{" "}
                         {totalElements}{" "}
                         results
+                        {searchQuery && <span> (filtered by "{searchQuery}")</span>}
                     </p>
 
                 </div>
@@ -213,18 +226,21 @@ function Shop() {
 
                         Sort by
 
-                        <select>
+                        <select
+                            value={sortBy}
+                            onChange={(e) => setSortBy(e.target.value)}
+                        >
 
                             <option value="default">
                                 Default
                             </option>
 
                             <option value="price">
-                                Price
+                                Price (Low to High)
                             </option>
 
                             <option value="name">
-                                Name
+                                Name (A-Z)
                             </option>
 
                         </select>
@@ -236,10 +252,6 @@ function Shop() {
             </section>
 
 
-            {/* =========================
-                PRODUCTS
-            ========================= */}
-
             {loading ? (
 
                 <div className="loading">
@@ -249,15 +261,12 @@ function Shop() {
             ) : (
 
                 <ProductList
-                    products={products}
+                    products={displayedProducts}
                 />
 
             )}
 
 
-            {/* =========================
-                PAGINATION
-            ========================= */}
 
             <div className="pagination">
 

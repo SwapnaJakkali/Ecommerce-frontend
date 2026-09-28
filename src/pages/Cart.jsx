@@ -23,34 +23,21 @@ function Cart() {
 
     const cartItems = cart?.items ?? [];
 
-
-    // =========================
-    // FETCH FRESH CART ON PAGE LOAD
-    // =========================
-
     useEffect(() => {
         fetchCart();
     }, []);
 
 
-    // =========================
-    // LOADING
-    // =========================
+    // if (loading) {
+    //     return (
+    //         <>
+    //             <Navbar />
+    //             <div className="cart-loading">Loading your cart...</div>
+    //             <Footer />
+    //         </>
+    //     );
+    // }
 
-    if (loading) {
-        return (
-            <>
-                <Navbar />
-                <div className="cart-loading">Loading your cart...</div>
-                <Footer />
-            </>
-        );
-    }
-
-
-    // =========================
-    // ERROR
-    // =========================
 
     if (error) {
         return (
@@ -72,10 +59,6 @@ function Cart() {
         <>
             <Navbar />
 
-
-            {/* =================================
-                BANNER
-            ================================= */}
 
             <div className="cart-banner">
 
@@ -99,19 +82,11 @@ function Cart() {
             </div>
 
 
-            {/* =================================
-                CART CONTENT
-            ================================= */}
-
             <section className="cart-section">
 
 
                 {cartItems.length === 0 ? (
 
-
-                    /* =========================
-                       EMPTY CART
-                    ========================= */
 
                     <div className="cart-empty">
 
@@ -135,10 +110,6 @@ function Cart() {
 
                     <div className="cart-layout">
 
-
-                        {/* =========================
-                            CART TABLE
-                        ========================= */}
 
                         <div className="cart-table-wrapper">
 

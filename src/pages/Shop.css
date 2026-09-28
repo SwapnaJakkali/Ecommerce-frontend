@@ -28,12 +28,12 @@
 
     text-align: center;
 }
-.shop-banner::before {
+/* .shop-banner::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.3);
-}
+} */
 
 .shop-banner h1 {
     margin: 0 0 10px;
@@ -147,98 +147,45 @@
 
 
 /* ================================
-   PRODUCTS
-================================ */
-
-.shop-products {
-    width: 90%;
-    max-width: 1200px;
-
-    margin: 40px auto;
-}
-
-.shop-products h2 {
-    text-align: center;
-
-    font-size: 28px;
-
-    margin-bottom: 30px;
-
-    color: #333;
-}
-
-
-/* ================================
-   PRODUCT GRID
-================================ */
-
-.product-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-}
-
-
-/* ================================
    PAGINATION
 ================================ */
 
 .pagination {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     gap: 20px;
-
-    padding: 40px 0;
-    margin: 40px 0 0;
-
+    padding: 20px 10px;
     background-color: #f9f9f9;
+    flex-wrap: wrap;
 }
 
-
 /* PAGINATION BUTTON */
-
 .pagination button {
     width: 50px;
     height: 50px;
-
     border: none;
     border-radius: 5px;
-
     background-color: transparent;
-
     font-size: 16px;
-
     cursor: pointer;
-
     transition: 0.2s ease;
 }
 
-
 /* ACTIVE PAGE */
-
 .pagination button.active {
     background-color: #b88e2f;
     color: white;
 }
 
-
 /* HOVER */
-
 .pagination button:hover:not(.active):not(:disabled) {
     background-color: #eee;
 }
 
-
 /* DISABLED NEXT */
-
 .pagination button:disabled {
     cursor: not-allowed;
-
     opacity: 0.5;
 }
 
@@ -249,9 +196,7 @@
 
 .loading {
     text-align: center;
-
     padding: 50px;
-
     font-size: 18px;
 }
 
@@ -261,25 +206,23 @@
 ================================ */
 
 @media (max-width: 900px) {
-
     .shop-toolbar {
-        padding: 0 4%;
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
+        padding: 15px 4%;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
     }
 
     .toolbar-left p {
-        display: none;
+        padding-left: 0;
+        border-left: none;
     }
 }
 
 
 @media (max-width: 650px) {
-
     .shop-banner {
-        height: 180px;
+        height: 120px;
     }
 
     .shop-banner h1 {
@@ -288,14 +231,35 @@
 
     .shop-toolbar {
         flex-direction: column;
-
-        gap: 15px;
-
-        padding: 15px;
+        padding: 12px 15px;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .toolbar-left p {
+        font-size: 13px;
+        margin: 0;
+        text-align: center;
     }
 
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .toolbar-right {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .toolbar-right label {
+        font-size: 10px;
+        gap: 5px;
+    }
+
+    .toolbar-right select {
+        height: 30px;
+        padding: 0 8px;
+        font-size: 10px;
     }
 
     .pagination {

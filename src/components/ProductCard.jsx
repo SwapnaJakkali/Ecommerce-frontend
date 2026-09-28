@@ -37,7 +37,7 @@ function ProductCard({ product }) {
                 </p>
 
                 <div className="product-price">
-                    Rp {product.price}
+                    Rs {product.price}
                 </div>
 
             </div>

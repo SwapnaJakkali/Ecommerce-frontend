@@ -120,18 +120,35 @@
 
   .hero {
     height: 500px;
-
-    padding: 20px;
-
+    padding: 15px;
     justify-content: center;
   }
 
   .hero-content {
     width: 100%;
     max-width: 400px;
+    padding: 30px 20px;
   }
 
   .hero-content h1 {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .hero-title {
+    font-size: 12px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-content {
+    padding: 25px 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
   }
 }

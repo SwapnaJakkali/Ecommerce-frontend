@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import "./ProductList.css";
 
-function ProductList({ products }) {
+function ProductList({ products, onShowMore, isLoading, hasMore }) {
 
   return (
     <section className="products-section">
@@ -20,9 +20,15 @@ function ProductList({ products }) {
 
       </div>
 
-      <button className="show-more-button">
-        Show More
-      </button>
+      {hasMore && (
+        <button 
+          className="show-more-button"
+          onClick={onShowMore}
+          disabled={isLoading}
+        >
+          {isLoading ? "Loading..." : "Show More"}
+        </button>
+      )}
 
     </section>
   );
