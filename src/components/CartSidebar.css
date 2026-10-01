@@ -183,8 +183,26 @@
     color: white;
 }
 
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 350px;
+    }
+}
+
 @media (max-width: 500px) {
     .cart-sidebar {
         width: 100%;
+    }
+    
+    .cart-sidebar-header {
+        padding: 20px;
+    }
+    
+    .cart-sidebar-items {
+        padding: 20px;
+    }
+    
+    .cart-sidebar-footer {
+        padding: 20px;
     }
 }
