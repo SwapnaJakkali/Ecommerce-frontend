@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-import room1 from "../assets/room1.png";
-import room2 from "../assets/room2.png";
+import room1 from "../assets/insp1.png";
+import room2 from "../assets/insp2.png";
+import room3 from "../assets/room2.png";
+import room4 from "../assets/insp3.png";
 import { Link } from "react-router-dom";
 import "./InspirationSection.css"
 
@@ -9,8 +11,8 @@ function InspirationSection() {
     const slides = [
         { img: room1, category: "01 — Bed Room", title: "Inner Peace" },
         { img: room2, category: "02 — Dining Room", title: "Modern Dining" },
-        { img: room1, category: "03 — Living Room", title: "Cozy Corner" },
-        { img: room2, category: "04 — Kitchen", title: "Minimalist" },
+        { img: room3, category: "03 — Living Room", title: "Cozy Corner" },
+        { img: room4, category: "04 — Kitchen", title: "Minimalist" },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -7,27 +7,49 @@ import { useAuth } from "../context/AuthContext";
 import "./Navbar.css"
 
 import {
-    faUser,
-    faMagnifyingGlass,
-    faHeart,
-    faCartShopping,
-    faRightFromBracket,
     faBars,
     faXmark
 } from '@fortawesome/free-solid-svg-icons'
 
+const UserIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="nav-svg-icon">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+  </svg>
+);
+
+const SearchIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="nav-svg-icon">
+    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+  </svg>
+);
+
+const HeartIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="nav-svg-icon">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+  </svg>
+);
+
+const CartIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="nav-svg-icon">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+  </svg>
+);
+
 function Navbar() {
     const navigate = useNavigate();
     const { totalItems, setIsCartOpen } = useCart();
-    const { user, isLoggedIn, logout } = useAuth();
+    const { isLoggedIn, logout } = useAuth();
     const [isSearchOpen, setIsSearchOpen] = React.useState(false);
     const [searchQuery, setSearchQuery] = React.useState("");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-
-    const handleLogout = () => {
-        logout();
-        navigate("/");
+    const handleUserClick = () => {
+        if (isLoggedIn) {
+            logout();
+            navigate("/");
+        } else {
+            navigate("/login");
+        }
     };
 
     const handleScrollToFooter = (e) => {
@@ -47,95 +69,76 @@ function Navbar() {
         }
     };
 
-    // Get first name only for display
-    // const firstName = user?.name?.split(" ")[0] || "";
-
     return (
-        <nav className="navbar">
+        <header className="navbar-header">
+            <nav className="navbar-container">
+                <div className="logo">
+                    <img src={logo} alt="Furniro Logo" />
+                    <span>Furniro</span>
+                </div>
 
-            <div className="logo">
-                <img src={logo} alt="icon furnio" />
-                <span>Furniro</span>
-            </div>
+                <div className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
+                    <ul>
+                        <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
+                        <li><Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Shop</Link></li>
+                        <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link></li>
+                        <li><a href="#footer" onClick={(e) => { handleScrollToFooter(e); setIsMobileMenuOpen(false); }}>Contact</a></li>
+                    </ul>
+                </div>
 
-            <div className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
-                <ul>
-                    <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
-                    <li><Link to="/shop" onClick={() => setIsMobileMenuOpen(false)}>Shop</Link></li>
-                    <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link></li>
-                    <li><a href="#footer" onClick={(e) => { handleScrollToFooter(e); setIsMobileMenuOpen(false); }}>Contact</a></li>
-                </ul>
-            </div>
-
-            <div className="nav-icons">
-                <span className="navbar-search-container">
-                    {isSearchOpen && (
-                        <form onSubmit={handleSearchSubmit} className="navbar-search-form">
-                            <input
-                                type="text"
-                                placeholder="Search..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                autoFocus
-                                className="navbar-search-input"
-                                onBlur={() => setIsSearchOpen(false)}
-                            />
-                        </form>
-                    )}
-                    <FontAwesomeIcon
-                        className="navbar-search-icon"
-                        icon={faMagnifyingGlass}
-                        onClick={() => setIsSearchOpen(!isSearchOpen)}
-                        title="Search"
-                        style={{ cursor: 'pointer' }}
-                    />
-                </span>
-
-                {/* USER — shows name if logged in */}
-                {isLoggedIn ? (
-                    <div className="navbar-user-info">
-                        <span className="navbar-user-name">
-                            <FontAwesomeIcon icon={faUser} />
-                            {/* {" "}{firstName} */}
-                        </span>
-                        <button
-                            className="navbar-logout-btn"
-                            onClick={handleLogout}
-                            title="Logout"
-                        >
-                            Logout <FontAwesomeIcon icon={faRightFromBracket} />
-                        </button>
-                    </div>
-                ) : (
-                    <button
-                        className="navbar-login-btn"
-                        onClick={() => navigate("/login")}
-                        title="Login"
+                <div className="nav-icons">
+                    <span
+                        className="navbar-icon-btn"
+                        onClick={handleUserClick}
+                        title={isLoggedIn ? "Logout" : "Login"}
                     >
-                        Login <FontAwesomeIcon icon={faUser} />
-                    </button>
-                )}
+                        <UserIcon />
+                    </span>
 
-                {/* <span>
-                    <FontAwesomeIcon icon={faHeart} />
-                </span> */}
+                    <span className="navbar-search-container">
+                        {isSearchOpen && (
+                            <form onSubmit={handleSearchSubmit} className="navbar-search-form">
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    autoFocus
+                                    className="navbar-search-input"
+                                    onBlur={() => setIsSearchOpen(false)}
+                                />
+                            </form>
+                        )}
+                        <span 
+                            className="navbar-icon-btn"
+                            onClick={() => setIsSearchOpen(!isSearchOpen)}
+                            title="Search"
+                        >
+                            <SearchIcon />
+                        </span>
+                    </span>
 
-                <span
-                    className="navbar-cart-icon"
-                    onClick={() => setIsCartOpen(true)}
-                    title="View Cart"
-                >
-                    <FontAwesomeIcon icon={faCartShopping} />
-                    {totalItems > 0 && (
-                        <span className="cart-badge">{totalItems}</span>
-                    )}
-                </span>
-                <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-    <FontAwesomeIcon icon={isMobileMenuOpen ? faXmark : faBars} />
-</div>
+                    <span className="navbar-icon-btn" title="Wishlist">
+                        <HeartIcon />
+                    </span>
 
-            </div>
-        </nav>
+                    <span
+                        className="navbar-icon-btn navbar-cart-btn"
+                        onClick={() => setIsCartOpen(true)}
+                        title="View Cart"
+                    >
+                        <CartIcon />
+                        {totalItems > 0 && (
+                            <span className="cart-badge">{totalItems}</span>
+                        )}
+                    </span>
+                    
+                    <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <FontAwesomeIcon icon={isMobileMenuOpen ? faXmark : faBars} />
+                    </div>
+                </div>
+            </nav>
+        </header>
     );
 }
 export default Navbar;

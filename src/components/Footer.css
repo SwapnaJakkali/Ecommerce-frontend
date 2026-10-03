@@ -5,10 +5,8 @@
 .footer {
     width: 100%;
     background-color: #ffffff;
-
-    padding: 45px 0 25px;
-
-    border-top: 1px solid #ddd;
+    padding: 48px 0 38px;
+    border-top: 1px solid #d9d9d9;
 }
 
 
@@ -18,19 +16,12 @@
 
 .footer-content {
     width: 100%;
-    max-width: 1220px;
-
+    max-width: 1240px;
     margin: 0 auto;
-
     display: grid;
-
-    grid-template-columns:
-        2fr
-        1fr
-        1fr
-        1.5fr;
-
+    grid-template-columns: 2.5fr 1fr 1fr 2fr;
     column-gap: 60px;
+    padding: 0 20px;
 }
 
 
@@ -49,21 +40,17 @@
 ================================= */
 
 .footer-info h2 {
-    margin: 0 0 45px;
-
-    font-size: 22px;
+    margin: 0 0 50px;
+    font-size: 24px;
     font-weight: 700;
-
-    color: #111;
+    color: #000;
 }
 
 .footer-info p {
     margin: 0;
-
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
-
-    color: #999;
+    color: #9F9F9F;
 }
 
 
@@ -72,12 +59,10 @@
 ================================= */
 
 .footer-column h3 {
-    margin: 0 0 45px;
-
-    font-size: 14px;
-    font-weight: 400;
-
-    color: #999;
+    margin: 0 0 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #9F9F9F;
 }
 
 
@@ -86,13 +71,11 @@
 ================================= */
 
 .footer-column a {
-    margin-bottom: 28px;
-
-    font-size: 14px;
-
+    margin-bottom: 45px;
+    font-size: 16px;
+    font-weight: 500;
     text-decoration: none;
-
-    color: #111;
+    color: #000;
 }
 
 .footer-column a:hover {
@@ -107,39 +90,31 @@
 .subscribe {
     display: flex;
     align-items: center;
-
     gap: 10px;
 }
 
 .subscribe input {
-    width: 180px;
-
+    width: 200px;
     border: none;
-    border-bottom: 1px solid #555;
-
-    padding: 8px 0;
-
+    border-bottom: 1px solid #000;
+    padding: 4px 0;
     outline: none;
-
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .subscribe input::placeholder {
-    color: #999;
+    color: #9F9F9F;
 }
 
 .subscribe button {
     border: none;
-    border-bottom: 1px solid #555;
-
+    border-bottom: 1px solid #000;
     background: transparent;
-
-    padding: 8px 0;
-
-    font-size: 12px;
-    font-weight: 600;
-
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 
@@ -149,21 +124,16 @@
 
 .footer-bottom {
     width: 100%;
-    max-width: 1120px;
-
-    margin: 25px auto 0;
-
-    padding-top: 30px;
-
-    border-top: 1px solid #ddd;
+    max-width: 1240px;
+    margin: 48px auto 0;
+    padding: 38px 20px 0;
+    border-top: 1px solid #D9D9D9;
 }
 
 .footer-bottom p {
     margin: 0;
-
-    font-size: 13px;
-
-    color: #111;
+    font-size: 16px;
+    color: #000;
 }
 
 /* =================================

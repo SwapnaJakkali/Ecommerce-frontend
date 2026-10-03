@@ -134,7 +134,7 @@ function Shop() {
 
         // Filter by search query
         if (searchQuery) {
-            result = result.filter(p => 
+            result = result.filter(p =>
                 p.name?.toLowerCase().includes(searchQuery.toLowerCase()) || 
                 p.description?.toLowerCase().includes(searchQuery.toLowerCase())
             );

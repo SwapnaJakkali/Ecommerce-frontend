@@ -88,7 +88,11 @@ export function CartProvider({ children }) {
             setError(null);
 
             const updatedCart = await addItemToCart(productId, quantity);
-            setCart(updatedCart);
+            if (updatedCart) {
+                setCart(updatedCart);
+            } else {
+                await fetchCart();
+            }
 
         } catch (err) {
 
@@ -120,7 +124,11 @@ export function CartProvider({ children }) {
             setError(null);
 
             const updatedCart = await updateCartItem(cartItemId, quantity);
-            setCart(updatedCart);
+            if (updatedCart) {
+                setCart(updatedCart);
+            } else {
+                await fetchCart();
+            }
 
         } catch (err) {
 
@@ -150,7 +158,11 @@ export function CartProvider({ children }) {
             setError(null);
 
             const updatedCart = await removeCartItem(cartItemId);
-            setCart(updatedCart);
+            if (updatedCart) {
+                setCart(updatedCart);
+            } else {
+                await fetchCart();
+            }
 
         } catch (err) {
 

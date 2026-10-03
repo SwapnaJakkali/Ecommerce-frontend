@@ -1,3 +1,4 @@
+
 .products-section {
   width: 100%;
 
@@ -12,8 +13,8 @@
 
 .products-section h2 {
   margin: 0 0 30px;
-
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -42,8 +43,8 @@
 .show-more-button {
   margin-top: 35px;
 
-  width: 180px;
-  height: 45px;
+  width: 245px;
+  height: 48px;
 
   background-color: white;
 

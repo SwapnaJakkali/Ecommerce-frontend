@@ -25,7 +25,8 @@ export const getCart = async () => {
         throw new Error("Failed to fetch cart");
     }
 
-    return response.json();
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 };
 
 
@@ -46,7 +47,8 @@ export const addItemToCart = async (productId, quantity) => {
         throw new Error("Failed to add item to cart");
     }
 
-    return response.json();
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 };
 
 
@@ -68,7 +70,8 @@ export const updateCartItem = async (cartItemId, quantity) => {
         throw new Error("Failed to update cart item");
     }
 
-    return response.json();
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 };
 
 
@@ -88,5 +91,7 @@ export const removeCartItem = async (cartItemId) => {
         throw new Error("Failed to remove cart item");
     }
 
-    return response.json();
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
 };
+

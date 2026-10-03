@@ -4,7 +4,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useCart } from "../context/CartContext";
 import "./Cart.css";
-import shop from "../assets/shop.png"
+import shop from "../assets/shop.png";
+import qualityIcon from "../assets/quality.svg";
+import warrantyIcon from "../assets/warrenty.svg";
+import shippingIcon from "../assets/shipping.svg";
+import supportIcon from "../assets/support.svg";
 
 
 function Cart() {
@@ -261,9 +265,10 @@ function Cart() {
             ================================= */}
 
             <div className="cart-features">
-
                 <div className="cart-feature-item">
-                    <span className="cart-feature-icon">🏆</span>
+                    <span className="cart-feature-icon">
+                        <img src={qualityIcon} alt="High Quality" />
+                    </span>
                     <div>
                         <strong>High Quality</strong>
                         <p>crafted from top materials</p>
@@ -271,7 +276,9 @@ function Cart() {
                 </div>
 
                 <div className="cart-feature-item">
-                    <span className="cart-feature-icon">✅</span>
+                    <span className="cart-feature-icon">
+                        <img src={warrantyIcon} alt="Warranty Protection" />
+                    </span>
                     <div>
                         <strong>Warranty Protection</strong>
                         <p>Over 2 years</p>
@@ -279,7 +286,9 @@ function Cart() {
                 </div>
 
                 <div className="cart-feature-item">
-                    <span className="cart-feature-icon">📦</span>
+                    <span className="cart-feature-icon">
+                        <img src={shippingIcon} alt="Free Shipping" />
+                    </span>
                     <div>
                         <strong>Free Shipping</strong>
                         <p>Order over 150 $</p>
@@ -287,7 +296,9 @@ function Cart() {
                 </div>
 
                 <div className="cart-feature-item">
-                    <span className="cart-feature-icon">📞</span>
+                    <span className="cart-feature-icon">
+                        <img src={supportIcon} alt="24 / 7 Support" />
+                    </span>
                     <div>
                         <strong>24 / 7 Support</strong>
                         <p>Dedicated support</p>

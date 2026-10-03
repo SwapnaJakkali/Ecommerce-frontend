@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 import { getProducts } from "../services/productServices";
 
-import heroImage from "../assets/hero.png";
+import heroImage from "../assets/home.png";
 import "./Home.css";
 
 

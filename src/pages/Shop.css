@@ -155,8 +155,8 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px 10px;
-    background-color: #f9f9f9;
+    padding: 0px 10px 30px 10px ;
+    background-color: #ffffff;
     flex-wrap: wrap;
 }
 

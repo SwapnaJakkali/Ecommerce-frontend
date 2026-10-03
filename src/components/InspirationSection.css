@@ -3,13 +3,14 @@
 ================================ */
 
 .inspiration-section {
-    width: 100%;
+    width:100%;
     min-height: 500px;
+    height: 670px;
 
+    /* margin: 0 100px; */
     background-color: #fcf8f3;
 
     display: flex;
-    align-items: center;
 
     padding: 50px 60px;
 
@@ -19,15 +20,17 @@
 }
 
 
+
 /* LEFT SIDE */
 
 .inspiration-content {
     width: 38%;
     padding-left: 70px;
+    padding-top: 150px;
 }
 
 .inspiration-content h2 {
-    font-size: 38px;
+    font-size: 40px;
     line-height: 1.2;
 
     color: #333;
@@ -79,8 +82,8 @@
 /* MAIN IMAGE */
 
 .main-room {
-    width: 52%;
-    height: 390px;
+    width: 400px;
+    height: 580px;
 
     position: relative;
 
@@ -150,8 +153,8 @@
 /* SECOND IMAGE */
 
 .second-room {
-    width: 38%;
-    height: 325px;
+    width:370px;
+    height: 480px;
 
     overflow: hidden;
 }
@@ -251,7 +254,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .inspiration-section {
         flex-direction: column;
         padding: 30px 20px;

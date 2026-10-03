@@ -16,11 +16,11 @@
 
 .gallery-heading {
     text-align: center;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
 }
 
 .gallery-heading p {
-    margin: 0 0 4px;
+    /* margin: 0 0 4px; */
     font-size: 16px;
     color: #666;
     font-weight: 500;
@@ -40,18 +40,9 @@
 
 .gallery-container {
     position: relative;
-    width: 65vw;
-    /* Aspect ratio height calculation based on original design layout */
-    height: 58vw; 
-    max-height: 650px;
-    margin: 0 auto;
-}
-
-@media (min-width: 1750px) {
-    .gallery-container {
-        width: 1750px;
-        height: 1015px;
-    }
+    width: 100%;
+    height: 780px; 
+    /* margin: 0 auto; */
 }
 
 .g-img {
@@ -142,8 +133,8 @@
 }
 @media (max-width:600px) {
     .gallery-container {
-        width: 270px;
-        height:300px;
+        width: 100%;
+        height: 300px;
     }
     .gallery-heading h2{
         font-size: 25px;

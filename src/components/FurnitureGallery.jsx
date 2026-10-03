@@ -25,9 +25,11 @@ function FurnitureGallery() {
             <div className="gallery-container">
                 <img src={gallery1} className="g-img g-img-1" alt="Bookshelf" />
                 <img src={gallery2} className="g-img g-img-2" alt="Workspace" />
-                <img src={gallery3} className="g-img g-img-3" alt="Armchair" />
-                <img src={gallery4} className="g-img g-img-4" alt="Stools" />
+                {/* <img src={gallery3} className="g-img g-img-3" alt="Armchair" /> */}
                 <img src={gallery5} className="g-img g-img-5" alt="Center Dining" />
+                <img src={gallery4} className="g-img g-img-4" alt="Stools" />
+                <img src={gallery3} className="g-img g-img-3" alt="Armchair" />
+                {/* <img src={gallery5} className="g-img g-img-5" alt="Center Dining" /> */}
                 <img src={gallery7} className="g-img g-img-6" alt="Bedroom" />      {/* Note: gallery7 is the Bedroom image */}
                 <img src={gallery6} className="g-img g-img-7" alt="Small Frame" />  {/* Note: gallery6 is the Small Frame */}
                 <img src={gallery8} className="g-img g-img-8" alt="Far Right Dining" />
