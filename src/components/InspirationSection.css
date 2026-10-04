@@ -235,47 +235,65 @@
    RESPONSIVE
 ================================ */
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .inspiration-section {
         padding: 40px 30px;
+        height: auto;
     }
     
     .inspiration-content {
-        width: 40%;
-        padding-left: 10px;
+        width: 45%;
+        padding-left: 20px;
+        padding-top: 80px;
     }
     
     .inspiration-gallery {
-        width: 60%;
+        width: 55%;
+        height: 480px;
     }
     
     .inspiration-content h2 {
-        font-size: 35px;
+        font-size: 30px;
+    }
+
+    .main-room {
+        width: 300px;
+        height: 480px;
+    }
+
+    .second-room {
+        width: 250px;
+        height: 380px;
     }
 }
 
 @media (max-width: 768px) {
     .inspiration-section {
         flex-direction: column;
-        padding: 30px 20px;
+        padding: 40px 20px;
         text-align: center;
+        height: auto;
     }
 
     .inspiration-content {
         width: 100%;
         padding-left: 0;
-        margin-bottom: 30px;
+        padding-top: 20px;
+        margin-bottom: 40px;
     }
 
     .inspiration-gallery {
         width: 100%;
         justify-content: center;
         height: auto;
+        flex-direction: column;
+        align-items: center;
     }
 
     .main-room {
         width: 100%;
-        height: 350px;
+        max-width: 500px;
+        height: 400px;
     }
 
     .second-room {
@@ -291,13 +309,8 @@
         position: relative;
         left: 0;
         bottom: 0;
-        margin-top: 15px;
+        margin-top: 25px;
         justify-content: center;
-    }
-    
-    .inspiration-gallery {
-        flex-direction: column;
-        align-items: center;
     }
     
     .room-info {
@@ -306,12 +319,12 @@
     }
     
     .room-info h3 {
-        font-size: 15px;
+        font-size: 18px;
     }
     .inspiration-content h2{
-        font-size: 20px;
+        font-size: 26px;
     }
     .inspiration-content p{
-        font-size: 12px;
+        font-size: 14px;
     }
 }
